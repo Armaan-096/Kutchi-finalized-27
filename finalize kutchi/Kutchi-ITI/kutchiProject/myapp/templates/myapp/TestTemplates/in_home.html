@@ -1,0 +1,767 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css" /> -->
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Poppins:400,700|Roboto:400,700&display=swap" rel="stylesheet" />
+
+
+
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      color: #0c0c0c;
+      background-color: #ffffff;
+    }
+
+    .layout_padding {
+      padding: 75px 0;
+    }
+
+    .layout_padding2 {
+      padding: 45px 0;
+    }
+
+    .layout_padding2-top {
+      padding-top: 45px;
+    }
+
+    .layout_padding2-bottom {
+      padding-bottom: 45px;
+    }
+
+    .layout_padding-top {
+      padding-top: 75px;
+    }
+
+    .layout_padding-bottom {
+      padding-bottom: 75px;
+    }
+
+    .heading_container h2 {
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-top: 5rem;
+    }
+
+    .hero_next_section-margin {
+      margin-top: 0px;
+    }
+
+    /*header section*/
+    .hero_area {
+      position: relative;
+      background-color: #005bb0;
+      height: 85vh;
+    }
+
+    .sub_page .hero_area {
+      height: auto;
+    }
+
+    .hero_area.sub_pages {
+      height: auto;
+    }
+
+    .header_section {
+      background-color: #90953b;
+    }
+
+    .header_section .container-fluid {
+      padding-right: 25px;
+      padding-left: 25px;
+    }
+
+    .header_section .nav_container {
+      margin: 0 auto;
+    }
+
+    .custom_nav-container.navbar-expand-lg .navbar-nav .nav-link {
+      padding: 10px 30px;
+      color: #fefdfc;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item.active .nav-link {
+      position: relative;
+    }
+
+    .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item.active .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 65%;
+      left: 50%;
+      height: 2.5px;
+      background-color: #004EB0;
+      bottom: 8px;
+      margin: 0 auto;
+      display: block;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+
+    a,
+    a:hover,
+    a:focus {
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      color: initial;
+    }
+
+    .btn,
+    .btn:focus {
+      outline: none !important;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    .custom_nav-container .nav_search-btn {
+      background-image: url('/static/images/restored-image.png');
+      background-size: 22px;
+      background-repeat: no-repeat;
+      background-position-y: 7px;
+      width: 35px;
+      height: 35px;
+      padding: 0;
+      border: none;
+    }
+
+    .navbar-brand {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+    }
+
+    .navbar-brand span {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fefdfc;
+      margin-left: 10px;
+      text-transform: uppercase;
+    }
+
+    .custom_nav-container {
+      z-index: 99999;
+      padding: 5px 0;
+    }
+
+    .custom_nav-container .navbar-toggler {
+      outline: none;
+    }
+
+    .custom_nav-container .navbar-toggler .navbar-toggler-icon {
+      background-image: url(../images/menu.png);
+      background-size: 30px;
+    }
+
+    /*end header section*/
+    /* slider section */
+    .slider_section {
+      background-image: url('/static/images/restored-image.png');
+    
+      background-repeat: no-repeat;
+      background-size: 1300px;
+      width: 90%;
+      margin: 0 auto;
+      -webkit-transform: translateY(50px);
+      transform: translateY(50px);
+      height: 89%;
+      display: -webkit-box;
+      border-radius: 20px;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .slider_section .detail-box {
+      color: #fefdfc;
+    }
+
+    .slider_section .detail-box h1 {
+      color: #004EB0;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .slider_section .detail-box span {
+      color: black;
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+
+    .slider_section .detail-box p {
+      color: #2B4775;
+      margin-top: 25px;
+    }
+
+    .slider_section .detail-box .btn-box {
+      margin-top: 45px;
+    }
+
+    .slider_section .detail-box .btn-box .btn-1 {
+      display: inline-block;
+      padding: 12px 45px;
+      background-color: #a5b9d6;
+      color: white;
+      border-radius: 1rem;
+      text-transform: uppercase;
+      margin-right: 10px;
+      transition: all 0.3s;
+    }
+
+    .slider_section .detail-box .btn-box .btn-1:hover {
+      background-color: #00376b;
+      border-radius: 1rem;
+    }
+
+    .slider_section .detail-box .btn-box .btn-2 {
+      display: inline-block;
+      padding: 12px 42px;
+      background-color: #fefdfc;
+      color: #050505;
+      border-radius: 0;
+      border-radius: 1rem;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .slider_section .detail-box .btn-box .btn-2:hover {
+      background-color: #0c4a74;
+      border-radius: 1rem;
+      color: white;
+    }
+
+    .slider_section ol.carousel-indicators {
+      margin: 0;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: center;
+      bottom: -75px;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .slider_section ol.carousel-indicators li {
+      width: 20px;
+      height: 20px;
+      opacity: 1;
+      margin-right: 0.5rem;
+      background-color: #C3DEE2;
+      border-radius: 50%;
+    }
+
+    .slider_section ol.carousel-indicators li.active {
+      background-color: transparent;
+      border: 3px solid #0f419e;
+    }
+
+    .offer_section .content-box {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      margin: 45px 0;
+    }
+
+    .offer_section .content-box .img-box {
+      min-width: 125px;
+      min-height: 115px;
+      background-color: #eeeded;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      margin-right: 25px;
+    }
+
+    .offer_section .content-box .img-box svg {
+      width: 55px;
+      height: auto;
+    }
+
+    .offer_section .content-box:hover .img-box {
+      background-color: #8f9440;
+    }
+
+    .offer_section .content-box:hover .img-box svg {
+      fill: #fefdfc !important;
+    }
+
+    .offer_section .content-box:hover .img-box svg g {
+      fill: #fefdfc !important;
+    }
+
+    .offer_section .content-box:hover .img-box svg path {
+      fill: #fefdfc !important;
+    }
+
+    .offer_section .content-box .detail-box h6 {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .offer_section .content-box .detail-box p {
+      margin: 0;
+    }
+
+    /* footer section*/
+    .footer_section {
+      background-color: #252525;
+      padding: 5px;
+      background-color: #004EB0;
+    }
+
+    .footer_section p {
+      margin: 0;
+      text-align: center;
+      color: #fefdfc;
+    }
+
+    .footer_section a {
+      color: #fefdfc;
+    }
+
+
+    /* -----------------------RESPONSIVE CSS-------------------------------------------- */
+    
+    @media (max-width: 1120px) {}
+
+    @media (max-width: 992px) {}
+
+    @media (max-width: 768px) {
+      .hero_area {
+        height: auto;
+      }
+
+      .slider_section {
+        padding: 50px 0 125px 0;
+      }
+
+      .info_section .info_form form {
+        margin-bottom: 35px;
+      }
+
+      .info_section .row .col-md-3 {
+
+        margin: 5px 0;
+        text-align: center;
+
+      }
+
+      .info_section .info_logo a {
+        justify-content: center;
+      }
+
+    }
+
+    @media (max-width: 576px) {
+      .slider_section .detail-box {
+        text-align: center;
+      }
+
+      .slider_section .detail-box h1 {
+        font-size: 1.5rem;
+      }
+
+      .slider_section .detail-box span {
+        font-size: 3rem;
+      }
+
+      .slider_section ol.carousel-indicators {
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .contact_section form {
+        padding-right: 0;
+        margin-bottom: 45px;
+      }
+
+      .contact_section button {
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slider_section .detail-box .btn-box .btn-1 {
+        margin: 0;
+        margin-bottom: 15px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .slider_section .detail-box h1 {
+        font-size: 1.25rem;
+      }
+
+      .slider_section .detail-box span {
+        font-size: 2.2rem;
+      }
+
+      .offer_section {
+        text-align: center;
+      }
+
+      .offer_section .content-box {
+
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 20px 0;
+      }
+
+
+      .offer_section .content-box .img-box {
+        min-width: 100px;
+        min-height: 85px;
+        margin: 0;
+        margin-bottom: 15px;
+      }
+
+      .offer_section .content-box .img-box svg {
+        width: 45px;
+      }
+
+      .client_section .carousel-control-prev,
+      .client_section .carousel-control-next {
+        display: none;
+      }
+    }
+
+    @media (max-width: 360px) {}
+
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1170px;
+      }
+    }
+
+    /*# sourceMappingURL=style.css.map */
+  </style>
+</head>
+
+<body>
+  <!-- <div class="hero_area"> -->
+    <!-- header section strats -->
+    <header class="header_section">
+  
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+      <div class="container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <!-- <img src="/static/images/img.jpg" alt="" height="450rem" width="1400rem" style="background-size: contain;"> -->
+                    <h1>
+                        Mumbra's Trusted IT Legacy <br />
+                      <span>
+                        Kutchi ITI
+                      </span>
+                    </h1>
+                    <p>
+                        Kutchi ITI, Mumbra's trusted IT legacy for decades, shapes careers with unwavering excellence. Rooted in community trust, it ensures a transformative educational experience, propelling students into a future of technological success.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'about' %}" class="btn-1">
+                        Read More
+                      </a>
+                      <a href="{% url 'contact' %}" class="btn-2">
+                        Contact us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <h1>
+                        A Perfect Learning Center <br />
+                        <span>
+                          For IT students
+                        </span>
+                      </h1>
+                    <p>
+                        A Perfect Learning Center for IT Students: Elevate your skills, ignite your potential. Experience excellence in every lesson, empowering you for a successful future in the world of technology.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn-1">
+                        Read More
+                      </a>
+                      <a href="" class="btn-2">
+                        Contact us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <h1>
+                        Coding the Future <br />
+                      <span>
+                        Join KUTCHI ITI
+                      </span>
+                    </h1>
+                    <p>
+                        A transformative journey into the world of technology, unlock your potential in the world of technology. Your pathway to success begins here!
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn-1">
+                        Read More
+                      </a>
+                      <a href="" class="btn-2">
+                        Contact us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <h1>
+                        Tech Mastery Since  <br />
+                      <span>
+                        1994
+                      </span>
+                    </h1>
+                    <p>
+                        For nearly three decades, Kutchi ITI has been a pioneering force in shaping IT excellence. With a rich history of innovation and expertise, our institute continues to empower students to master the ever-evolving tech landscape.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn-1">
+                        Read More
+                      </a>
+                      <a href="" class="btn-2">
+                        Contact us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <h1>
+                        Your Gateway to IT Excellence Starts <br />
+                      <span>
+                        Code, Create
+                      </span>
+                    </h1>
+                    <p>
+                      Unleash your potential with hands-on learning and innovative programs that pave the way to a successful IT career. Join us in crafting the future of technology!"
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn-1">
+                        Read More
+                      </a>
+                      <a href="" class="btn-2">
+                        Contact us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- offer section -->
+
+  <section class="offer_section hero_next_section-margin layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Announcement
+        </h2>
+        <p>
+          Stay tuned for exciting updates and important announcements in our dedicated section – where opportunities, events, and breakthroughs come to life!
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="content-box">
+            <div class="img-box">
+              <img src="/static/images/notice icon.png" alt="" height="150rem" width="150rem">
+            </div>
+            <div class="detail-box">
+              <h6>
+                EVENTS
+              </h6>
+              <p>
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="content-box">
+            <div class="img-box">
+              <img src="/static/images/document.png" alt="" height="180rem" width="160rem">
+            </div>
+            <div class="detail-box">
+              <h6>
+                HOLIDAYS
+              </h6>
+              <p>
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="content-box">
+            <div class="img-box">
+              <img src="/static/images/Examination tym.jpeg" alt="" height="160rem" width="150rem">
+            </div>
+            <div class="detail-box">
+              <h6>
+                IMPORTANT
+              </h6>
+              <p>
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="content-box">
+            <div class="img-box">
+              <img src="/static/images/notice icon.png" alt="" height="150rem" width="150rem">
+            </div>
+            <div class="detail-box">
+              <h6>
+                GENERAL
+              </h6>
+              <p>
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="content-box">
+            <div class="img-box">
+              <img src="/static/images/document.png" alt="" height="180rem" width="160rem">
+            </div>
+            <div class="detail-box">
+              <h6>
+                NOTICE
+              </h6>
+              <p>
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="content-box">
+            <div class="img-box">
+              <img src="/static/images/Examination tym.jpeg" alt="" height="160rem" width="150rem">
+            </div>
+            <div class="detail-box">
+              <h6>
+                OFFERS
+              </h6>
+              <p>
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end offer section -->
+
+ 
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      &copy; 2023 All Rights Reserved By
+      <a href="https://html.design/">Mohd Faiz Khan</a>
+    </p>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+
+  
+</body>
+
+</html>

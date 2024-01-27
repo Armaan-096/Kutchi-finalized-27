@@ -1,0 +1,491 @@
+{% extends 'base.html' %}
+
+{% block title %}Student's Details Page{% endblock title %}
+
+{% block content %}
+
+<style>
+    {% comment %} .studentDetails{
+        margin-left: 120px;
+    } {% endcomment %}
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        position: relative;
+        width: 95%;
+        margin: auto;
+        margin-top: 0px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    .student-details {
+        margin-top: 20px;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .detail {
+        color:white;
+        width: 48%;
+        padding: 10px;
+   
+        background-color: #b20237;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .detail:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 
+        0 25px 60px 0 rgba(0,0,0,0.19);
+        background-color: #1e3d56;
+
+    }
+
+    .remarks-detail{
+        color:white;
+        width: 48%;
+        padding: 10px;
+        background: linear-gradient(to bottom, #e02b0b, #e00b0b);
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+    .remarks-detail:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 
+        0 25px 60px 0 rgba(0,0,0,0.19);
+    }
+
+    .fees-detail{
+        color:white;
+        margin-left: 240px;
+        width: 65%;
+        padding: 10px;
+     
+        background-color: #1e3d56;
+        border-radius: 35px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+    .fees-detail:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 
+        0 25px 60px 0 rgba(0,0,0,0.19);
+        background-color: #b20237;
+
+    }
+
+    h1 {
+        text-align: center;
+        color:#1e3d56;
+    }
+
+    h2 {
+        margin-top: 0;
+        color: #1e3d56;
+    }
+
+    p {
+        margin: 5px 0;
+    }
+
+    .edit-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 5px;
+        margin-right:140px;
+        
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #1e3d56;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .edit-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+    
+    .delete-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 5px;
+        
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #bf512c;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .delete-button:hover {
+        background-color: #e00b0f;
+        transform: scale(1.05);
+    }
+
+    .addremarkbtn{
+        display: inline-block;
+        padding: 5px 20px;
+        background-color: #bf512c;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 25px;
+        margin-left:360px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    .addremarkbtn:hover{
+        background-color: #e00b0f;
+        transform: scale(1.05);
+    }
+
+    .extendbtn{
+        display: inline-block;
+        margin-left:400px;
+        padding: 5px 20px;
+        background-color: #a84432;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .extendbtn:hover{
+        background-color: #e00b0f;
+        transform: scale(1.05);
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Vertically center the buttons */
+    }
+    .payhistorybtn{
+        padding: 5px 20px;
+        background-color: #8ac21b;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        text-decoration: none;
+    }
+
+    .feesbutton{
+        margin-left:480px;
+        padding: 5px 20px;
+        background-color: #8ac21b;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    } 
+    
+    .feesbutton:hover, .payhistorybtn:hover {
+        background-color: #2cc21b;
+        transform: scale(1.08);
+    }
+
+    .cancel_admbtn{
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 5px;
+        margin-right:260px;
+        
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #bf512c;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    .cancel_admbtn:hover{
+        background-color: #e00b0f;
+        transform: scale(1.05);
+    }
+
+    table, th, td{
+        color:white
+    }
+
+</style>
+
+<div class="studentDetails">
+
+    <div>
+        <h1><b>Viewing Student Details</b></h1>
+        <hr>
+    </div>
+
+        {% comment %} <a href="{% url 'delete' students.id %}">Delete student</a> {% endcomment %}
+        {% comment %} <a href="{% url 'edit' students.id %}">Edit Student Details</a> {% endcomment %}
+    {% comment %} <div>
+        <h3>Full Name : {{student.firstname}} {{student.lastname}}</h3>
+        <h3>Age : {{student.age}}</h3>
+        <h3>Gender : {{student.gender}}</h3>
+        <h3>Phone number : {{student.phoneno}}</h3>
+        <h3>Email ID : {{student.emailid}}</h3>
+        <h3>Address : {{student.address}}</h3>
+        <h3>Course Name : {{student.coursename}}</h3>
+        <h3>Joining Date : {{student.joiningdate}}</h3>
+        <h3>Total Course Duration : {{duration.months}} Months, {{duration.days}} Days</h3>
+        <h3>Completion Date : {{student.completiondate}}</h3>
+        <h3>Total Course Fees : {{student.coursefees}}</h3>
+        <h3>Fees Paid : {{student.feespaid}}</h3>
+        <h3>Remaining Fees : {{remainingBalance}}</h3>
+    </div> {% endcomment %}
+    
+    <div class="container">
+        <button class="edit-button" onclick="location.href='{% url 'edit' students.id %}'">Edit</button>
+        <button class="delete-button" onclick="location.href='{% url 'delete' students.id %}'">Delete</button>
+        {% if not students.is_admission_canceled %}
+            <form action="{% url 'cancel_admission' students.id %}">
+                <button class="cancel_admbtn" type="submit">Cancel Admission</button>
+            </form>
+        {% endif %}
+        <h2><b>{{students.firstname}}'s Informations</b></h2>
+        
+        {% if students.is_admission_canceled %}
+            <h2 style="color:red"><b>ADMISSION FOR THIS STUDENT HAS BEEN CANCELLED</b></h2>
+        {% endif %}
+            
+
+        <div class="student-details">
+            <div class="detail">
+                <h3>Personal Information</h3>
+                <p><strong>Name:</strong> {{students.firstname}} {{ students.lastname }}</p>
+                <p><strong>Seriel Number:</strong>  {{students.id}}</p>
+                <p><strong>Roll Number:</strong> {{students.rollno}} </p>
+
+                <p><strong>Age:</strong>  {{ students.age }}</p>
+                <p><strong>Gender:</strong> {{ students.gender }}</p>
+                <p><strong>Occupation:</strong> {{students.occupation}}</p>
+                <p><strong>Phone:</strong> {{ students.phoneno }}</p>
+                <p><strong>Email:</strong> {{ students.emailid }}</p>
+            </div>
+            <div class="detail">
+                <!-- &#8377; is a rupees symbol -->
+                <h3>Course Information</h3>
+                <p><strong>Course:</strong> {{ students.coursename }}</p>
+                <p><strong>Joining Date:</strong> {{ students.joiningdate|date:"F d, Y" }}</p>
+                <p><strong>Completion Date:</strong>  {{ students.completiondate|date:"F d, Y" }}</p>
+                <p><strong>Total Course Duration:</strong> {{duration.years}} Years, {{ duration.months }} Months, {{ duration.days }} Days</p>
+                <p><strong>Total Fees:</strong> &#8377;{{ students.coursefees }}</p>    
+                <p><strong>Fees Paid:</strong> &#8377;{{ students.feespaid }}</p>
+                <p><strong>Remaining Balance:</strong> &#8377;{{ remainingBalance }}</p>
+                <p><strong>Batch and Timing:</strong> {{students.batch_time}}</p>
+                {% if students.extendeddate %}
+                    <p style="background-color:red"><strong>Course Extention Date:</strong> {{students.extendeddate}}</p>
+                {% else %}
+                    <p><strong>Course Extention Date:</strong> {{students.extendeddate}}</p>
+                {% endif %}
+
+                {% if not students.extendeddate %}
+                    <button class="extendbtn" onclick="location.href='{% url 'edit' students.id %}'">Extend Date?</button>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="student-details">
+            <div class="fees-detail">
+                <h3>Fees Details</h3>
+                <p><strong>Total Course Fees:</strong> &#8377;{{ students.coursefees }}</p>    
+                <p><strong>Initial amount Paid:</strong> &#8377;{{ students.initial_payment }}</p>    
+                <p><strong>Total Fees Paid:</strong> &#8377;{{ students.feespaid }}</p>
+                <p><strong>Remaining Balance:</strong> &#8377;{{ remainingBalance }}</p>
+                <p><strong>Due date:</strong> </p>
+                <div class="button-container">
+                    
+                        
+                    {% if students.feespaid != students.coursefees %}
+                    <button class="feesbutton" onclick="location.href='{% url 'add_installment' students.id %}'">Add Payment</button>
+                    {% endif %}
+
+                    <button class="payhistorybtn" onclick="location.href='{% url 'payment_history' students.id %}'">Payment History</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="student-details">
+            <div class="detail">
+                <h3>Address</h3>
+                <p>{{ students.address }}</p>
+                <!-- <p>City, State</p>
+                <p>Zip Code</p> -->
+            </div>
+            <div class="detail">
+                <h3>Emergency Contact</h3>
+                <p><strong>Name:</strong>  {{students.firstname}} {{ students.lastname }}</p>
+                <p><strong>Phone:</strong> {{ students.phoneno }}</p>
+                <p><strong>Email:</strong> {{ students.emailid }}</p>
+            </div>
+        </div>
+
+        <div class="student-details">
+            {% load custom_filters %}
+            <div class="detail">
+                <h3>Exam and Certification</h3>
+
+                <div class="exam-status">
+                    {% if students.exam_given %}
+                        <p><strong>Exam Status:</strong>  Given</p>
+                    {% else %}
+                        <p><strong>Exam Status:</strong>  Exam Pending</p>
+                    {% endif %}
+                </div>
+                
+                {% comment %} <p><strong>Exam Date:</strong> {{ students.completiondate|add_days:1|date:"F d, Y" }}</p> {% endcomment %}
+                <p><strong>Exam Date:</strong> {{ students.exam_date|date:"F d, Y"  }}</p>
+                <p><strong>Exam Fees:</strong>&#8377;100 </p>
+                <p><strong>Exam Session:</strong> </p>
+                <p><strong>Exam Attempt:</strong> </p>
+                <p><strong>Re-Exam:</strong> </p>
+                <p><strong>Certification:</strong>  {{ students.coursename }}</p>
+                <p><strong>Certification no:</strong> </p>
+                <p><strong>Result Date:</strong> </p>
+            </div>
+
+            <div class="remarks-detail">
+                <!-- &#8377; is a rupees symbol -->
+                <h3>Remarks</h3>
+                <ul>
+                    {% for remark in students.studentremarks_set.all %}
+                        <li>{{ remark.remark_date|date:"F d, Y" }}: {{ remark.remarks }}</li>
+                    {% endfor %}
+                    <button class="addremarkbtn" onclick="location.href='{% url 'remarks' students.id %}'">Add a Remark</button>
+                </ul>
+            </div>
+        </div>
+
+        <div class="student-details">
+            <div class="fees-detail">
+                <h3>Services</h3>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Service Request Date</th>
+                            <th>Type of Services</th>
+                            <th>Request Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for service in services %}
+                        <tr>
+                            <td>{{ service.request_date }}</td>
+                            <td>
+                                {% if service.change_batch_time %}Change Batch Time<br>{% endif %}
+                                {% if service.extend_batch_time %}Extend Batch Time<br>{% endif %}
+                                {% if service.special_batch %}Special Batch<br>{% endif %}
+                                {% if service.course_rejoin %}Course Rejoin<br>{% endif %}
+                                {% if service.course_extend %}Course Extend<br>{% endif %}
+                                {% if service.course_duration_extend %}Course Duration Extend<br>{% endif %}
+                                {% if service.course_break %}Course Break<br>{% endif %}
+                                {% if service.fast_track %}Fast Track<br>{% endif %}
+                                {% if service.extra_practice %}Extra Practice<br>{% endif %}
+                                {% if service.name_correction %}Name Correction<br>{% endif %}
+                                {% if service.installment_extend %}Extend Installment<br>{% endif %}
+                                {% if service.trust_letter %}Trust Letter<br>{% endif %}
+                                {% if service.duplicate_id %}Duplicate ID<br>{% endif %}
+                                {% if service.duplicate_certificate %}Duplicate Certificate<br>{% endif %}
+                                {% if service.certificate_marksheet_bypost %}Certificate/Marksheet By Post<br>{% endif %}
+                                {% if service.reissue_book %}Reissue Book<br>{% endif %}
+                                {% if service.reissue_hall_ticket %}Reissue Hall Ticket<br>{% endif %}
+                                {% if service.re_exam %}Re-Exam<br>{% endif %}
+                                {% if service.recheck_exampaper %}Recheck Exam Paper<br>{% endif %}
+                                {% if service.attendance_chart %}Attendance Chart<br>{% endif %}
+                                {% if service.mobile_num_change %}Change Mobile Number<br>{% endif %}
+                                {% if service.holiday_leave %}Holiday Leave<br>{% endif %}
+                                {% if service.change_faculty %}Change Faculty<br>{% endif %}
+                                {% if service.fine_or_penalty_waivedoff %}Fine/Penalty Waived Off<br>{% endif %}
+                                {% if service.cancel_admission %}Cancel Admission<br>{% endif %}
+                                {% if service.other_services %}Other Services<br>{% endif %}
+                            </td>
+                            <td>{{ service.request_details }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+
+
+            </div>
+        </div>
+
+
+        <div class="student-details">
+            <div class="fees-detail">
+                <h3>Examination Reports</h3>
+                
+                {% if exam_reports %}
+                    <!-- Iterate through the exam_reports queryset -->
+                    {% for exam_report in exam_reports %}
+                        <p><strong>Status:</strong>
+                        {% if exam_report.exam_status %}
+                            Given
+                        {% else %}
+                            Not Given
+                        {% endif %}
+                        </p>    
+                        <p><strong>Theoretical Marks:</strong> {{ exam_report.theory_marks }} Marks</p>    
+                        <p><strong>Practical Marks:</strong> {{ exam_report.practical_marks }} Marks</p>
+                        <p><strong>Total Marks:</strong> {{ exam_report.total_marks }} Marks</p>
+                        <p><strong>Percentage:</strong> {{ exam_report.percentage }}%</p>
+                        <p><strong>Marksheet no:</strong> {{ exam_report.marksheet_no }}</p>
+                        <p><strong>Hall Ticket no:</strong> {{ exam_report.hallticket_no }}</p>
+                        
+                        <!-- Provide a link to update the exam report -->
+                        <div class="button-container">
+                            <a class="payhistorybtn" href="{% url 'updateexamreport' exam_report.id %}">Update Exam Report</a>
+                        </div>  
+                    {% endfor %}
+                {% else %}
+                    <p>No exam reports available for this student.</p>
+                    
+                    <!-- Display the "Add Exam Report" button only if there is a valid student ID -->
+                    {% if students.id %}
+                        <div class="button-container">
+                            <a class="payhistorybtn" href="{% url 'examreport' students.id %}">Add Exam Report</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        
+        
+        
+
+    </div>
+</div>
+
+{% endblock content %}
+{% block footer %}{% endblock footer %}
+ 

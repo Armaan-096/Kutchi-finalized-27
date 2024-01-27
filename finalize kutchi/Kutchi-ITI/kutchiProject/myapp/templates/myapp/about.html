@@ -1,0 +1,257 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Kutchi ITI{% endblock title %}
+
+{% block content %}
+
+<style>
+
+    .about-tab{
+        {% comment %} margin-left: 100px {% endcomment %}
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .header {
+        background: linear-gradient(90deg, rgba(1, 35, 47, 1) 0%, rgba(0, 80, 148, 1) 18%, rgba(125, 233, 255, 1) 100%);
+        color: #fff;
+        text-align: center;
+        padding-top: 5px;
+    }
+
+    .header .btn-outline-primary{
+        border:none;
+        color:white;
+        width:150px;
+        margin-bottom:5px;
+    }
+    .container1 {
+        max-width: 1300px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s;
+    }
+    .container1:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 
+        0 25px 60px 0 rgba(0,0,0,0.19);
+    }
+
+    .myimg{
+        text-align: center;
+        margin-top: 45px;
+        margin-bottom: 30px;
+    }
+    .myimg img{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 
+        0 25px 60px 0 rgba(0,0,0,0.19);
+    }
+    .myimg img:hover{
+        transform: scale(1.05);
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 
+        0 25px 60px 0 rgba(0,0,0,0.19);
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    h2 {
+        font-size: 24px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    ul {
+        margin-left: 20px;
+        padding-left: 20px;
+        list-style-type: disc;
+    }
+
+    .ytvidep{
+        margin-top: 100px;
+        {% comment %} margin-left: 100px {% endcomment %}
+    }
+
+
+    @media (max-width:700px){
+        .about-tab{
+            margin-left: 0vw
+        }
+
+        .header{
+            margin-top:2vh
+        }
+
+        .header h1{
+            font-size:4vmax
+        }
+        .myimg img{
+            width: 80vw
+        }
+
+        .container1 h2{
+            font-size:7vw
+        }
+
+        .container1 p{
+            font-size:4vw
+        }
+
+        .container1 li{
+            font-size:4vw
+        }
+
+        .ytvidep{
+            margin-left: 0vw
+        }
+    }
+    
+    
+
+        
+</style>
+
+<div class="about-tab">
+<div class="header">
+    <h1>Welcome to Kutchi ITI</h1>
+    {% if not user.is_authenticated %}
+        <a type="button" class="btn btn-outline-primary" href="{% url 'login' %}">Login now</a>    
+    {% endif %}
+        
+</div>
+<div class="myimg">
+    <img src="{% static 'images/about-us-img.jpg' %}" alt="About Us Image">
+</div>
+
+<div class="container1">
+    <h2>About Kutchi-ITI</h2>
+    <p>
+        At Kutchi ITI, we are more than just an educational institution – we are a legacy of excellence,
+        innovation, and commitment in the field of Information Technology. For over three decades, we have
+        been at the forefront of shaping IT education, providing a comprehensive spectrum of courses that
+        cater to the dynamic demands of the industry.
+        <br><br>
+        Serving Man is like serving God. The power of knowledge is passed from generation to another generation<br><br>
+
+        Without knowledge a normal man can never grow. Through Knowledge only one can reach his goal easily and fulfill his dream. Knowledge is the only way through which one will come to now about his own power.<br><br>
+
+        A knowledge able man is capable of passing through bad time easily, and is successfully in clearing all the hurdles which comes in his way.<br><br>
+
+        Knowledge plays a key role in founding a good and sophisticated society having responsible citizens.<br><br>
+
+        For the bright future of the students and to reach there goal, we are providing them a helping hand so that they become a respectful citizen of the society.<br><br>
+
+        For the same reason, to help the students of Mumbai and Thane and, to give them good knowledge and good talent we have taken this step. And with the blessing of our teacher and help of our beloved friends on 1st May 1994 we have established Kutchi I.T.I. And with your help and support we have completed 26 years successfully and in the 27 year we have broken all records. We are certified by the institute of I.T.E.S vocational and engineering examination board and is 9001:2008 certified and registered by District Industrial Center Service Industry Government of Maharashtra.<br><br>
+
+        We give full assurance that in our institute the students will come to know about the competitive world and how to get success in. We will also teach them technical course through which they will be able to live successfully in this competitive world.<br><br>
+
+        In our institute with technical knowledge we also give them chance to know about the living of illiterate people and the facilities provided to the illiterate people by the Government. Many students of this institute got successful not only in India but also in foreign countries.<br><br>
+
+        This happened only by the blessing of our teacher and help of our friends and also from the support of ex-students of this institute.<br><br>
+
+        They give us their idea and also confidence on how to provide more facilities to students. There is no doubt that this institute will make news in the world of technical world. We take care of our belonging but knowledge take care of us. We hope that you will give a favorable reply and extend your support to us and help us to move ahead.
+    </p>
+
+    <hr>
+    <h2>Our Journey</h2>
+    <p>
+        Established three decades ago, Kutchi ITI has evolved into a pioneering institution, synonymous with
+        quality education in the IT domain. Our unwavering dedication to delivering cutting-edge knowledge and
+        industry-relevant skills has set us apart as a trusted and respected name in the field.
+    </p>
+    <hr>
+    <h2>Our Courses</h2>
+    <p>
+        With a rich array of courses spanning MSCIT, Programming, Hardware, Web Development, Graphic Design,
+        and various other high-level IT disciplines, Kutchi ITI offers a diverse portfolio that equips our
+        students with the skills needed to thrive in a competitive landscape.
+    </p>
+    <hr>
+    <h2>Our Commitment</h2>
+    <p>
+        At Kutchi ITI, we recognize that success in the IT sector is rooted in a strong foundation of knowledge
+        and skill. Therefore, we are committed to delivering education that goes beyond textbooks, fostering
+        critical thinking, problem-solving, and real-world application. Our courses are designed by industry experts
+        and seasoned educators, ensuring that our students are prepared to tackle the challenges of the ever-evolving
+        IT landscape.
+    </p>
+    <hr>
+    <h2>Placement</h2>
+    <p>Kutchi-ITI has so far trained more than 1 lakhs students who are currently successfully working in the industry today. We have a full time placement cell working to identify the best opportunities for the students.</p>
+    <hr>
+    <h2>Corporate Training</h2>
+    <p>
+        In the current scenario of Global Competition, Organizations have realized the role of IT & Soft Skills Training in Development and Growth of Companies. With ever increasing pressure on Companies to reach their Quarterly Bench Marks, we at Kutchi-ITI helps you save on operational cost and increase productivity with Customized Training Tracks, a solution which most MNCs are looking for. We deliver Corporate Trainings On-Site, Off-Site or at our Institute. Schedule of Training is designed as per Client requirements so that it minimizes impact on production and operational cost. We also create customized syllabus as per Client's need. All programs contain interactive exercise, self assessment quizzes and exhaustive assignments. Our teams of Expert Faculties help the Organization in achieving their strategic goals. Our Methodology includes real-time interaction, in depth information, personalized interaction, practical training & easy to understand reference material to reach your desired output.
+    </p>
+    <hr>
+    <h2>Why Choose Kutchi ITI?</h2>
+    <ul>
+        <li><strong>Legacy of Excellence:</strong> Our 30-year journey is a testament to our commitment to excellence
+            in IT education.</li>
+        <li><strong>Comprehensive Courses:</strong> We offer an extensive range of courses that cater to various IT
+            disciplines, ensuring a holistic learning experience.</li>
+        <li><strong>Industry-Relevant Skills:</strong> Our curriculum is aligned with industry trends, equipping
+            students with practical skills that are in high demand.</li>
+        <li><strong>Expert Faculty:</strong> Our faculty comprises industry experts and educators who bring real-world
+            experience to the classroom.</li>
+        <li><strong>State-of-the-Art Facilities:</strong> Our modern infrastructure and well-equipped labs provide
+            an optimal learning environment.</li>
+        <li><strong>Holistic Development:</strong> Beyond technical skills, we focus on nurturing soft skills, teamwork,
+            and leadership qualities.</li>
+    </ul>
+    <h4>Advantages</h4>
+    <ul>
+        <li>EMPOWERED OVER 1,00,000 PROFESSIONALS</li>
+        <li>MORE THAN 5+ Kutchi-ITI CENTERS ACROSS INDIA IN THE PAST 2 YRS.</li>
+        <li>OUR FRANCHISE SUCCESS RATE IS 95%.</li>
+        <li>ACCREDITED BY INDUSTRY LEADERS</li>
+        <li>DUAL TRAINING METHODOLOGY</li>
+        <li>COMPREHENSIVE STUDY MATERIALS</li>
+        <li>Mumbra's only institute which provides Professional cum Individual Training with Complete Job Assistance.</li>
+        <li>Fully I.T.E.S., Vocational & Engineering Exam Board Syllabus</li>
+        <li>Govt. / University / I.T.E.S. Board Exam / U.S.A.Exam / MSBTE - Mkcl's Authorized Learning Center</li>
+        <li>Full & Part Time Engineering / Degree / Diploma / Master Diploma / Certificate Courses</li>
+        <li>Electronics, Electricals, Mechanical, A/c & Refrigeration, Automobile, Civil & Mechanical, Draughtsman, Professional Board Exams also.</li>
+        <li>Special Fast Track Courses for Service & Businessmen</li>
+        <li>High-standards of training process by experienced industry professionals</li>
+        <li>Hands-on soft skills development for new and experienced students</li>
+        <li>One-on-one interaction with each student.</li>
+        <li>Anytime broadband internet access.</li>
+        <li>Training carried on projectors for real application feel.</li>
+        <li>Regularly updated course material to offer the latest and train with latest technologies.</li>
+        <li>Library & Lab Facility open for 7 days a week for the students.</li>
+        <li>Scholarship for needy, poor and orphans.</li>
+        <li>Certificate can be verified Online by any individual/company in India/Abroad you apply for a job.</li>
+        <li>Batch Timing: 7 am to 10 pm, Monday to Saturday</li>
+        <li>Sunday: Special Batch for working people - Morning 9 am to 1 pm</li>
+        <li>YCMOU University Mark Sheet will be awarded to all learners who have completed the KLiC Course From MKCL</li>
+      </ul>
+      
+    <p>
+        Join us at Kutchi ITI and embark on a transformative journey that will empower you to navigate the complex IT
+        landscape with confidence and expertise. Your aspirations are our inspiration, and together, we will shape a
+        future that is technologically advanced and full of promise.
+    </p>
+</div>
+</div>
+
+
+<div class='ytvidep'>
+    <div>
+        <h2 style="text-align:center">View our Youtube Below</h2>
+    </div>
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <div class="elfsight-app-768c1a27-482c-4e18-8c28-5a86f848c189"></div>
+</div>
+
+{% endblock content %}

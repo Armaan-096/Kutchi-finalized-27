@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Students{% endblock title %}
+
+{% block content %}
+
+<style>
+    
+    .studentPage{
+        margin-left: -10vw
+    }
+
+    @media (max-width:430px){
+        .studentPage{
+            margin-left: -50vw
+        }
+    }
+
+
+
+</style>
+
+{% comment %} <div class="header">
+    <h1>Registered Students</h1>    
+</div>  {% endcomment %}
+
+<div class="studentPage"> 
+    {% include 'myapp/TestTemplates/student-table.html' %}
+
+    {% comment %} {% include 'myapp/studentlist_inside_studenttab.html' %} {% endcomment %}
+
+</div> 
+
+{% endblock content %}
+
+{% block footer %}{% endblock footer %}

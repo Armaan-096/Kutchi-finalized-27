@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        width: 95%;
+        margin: auto;
+        margin-top: 0px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    .student-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .detail {
+        color:white;
+        width: 48%;
+        padding: 10px;
+        background-color: #b20237;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .detail:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 
+        0 25px 60px 0 rgba(0,0,0,0.19);
+        background-color: #1e3d56;
+    }
+
+    .remarks-detail{
+        color:white;
+        width: 48%;
+        padding: 10px;
+        background: linear-gradient(to bottom, #e02b0b, #e00b0b);
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+    .remarks-detail:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 
+        0 25px 60px 0 rgba(0,0,0,0.19);
+    }
+
+    .fees-detail{
+        color:white;
+        margin-left: 240px;
+        width: 65%;
+        padding: 10px;
+        background-color: #1e3d56;
+        border-radius: 35px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+    .fees-detail:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 
+        0 25px 60px 0 rgba(0,0,0,0.19);
+        background-color: #b20237;
+    }
+
+    h2 {
+        margin-top: 0;
+        color: #007bff;
+    }
+
+    p {
+        margin: 5px 0;
+    }
+
+    .examreportbtn{
+        display: inline-block;
+        padding: 5px 20px;
+        background-color: #bf512c;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 25px;
+        margin-left:0px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s; 
+    }
+    .examreportbtn:hover{
+        background-color: #e00b0f;
+        transform: scale(1.05);
+    }
+
+    /* Media Query for screens 700px and below */
+    @media (max-width: 700px) {
+        .detail, .remarks-detail, .fees-detail {
+            width: 100%;
+            margin-left: 0;
+            margin-bottom: 3vh;
+        }
+    }
+    
+</style>
+</head>
+<body>
+
+<div class="container">
+    {% if students.is_admission_canceled %}
+        <h2 style="color:red"><b>YOUR ADMISSION HAS BEEN CANCELLED</b></h2>
+    {% else %}
+        <h2>Your Details</h2>
+    {% endif %}
+    
+    <div class="student-details">
+        <div class="detail">
+            <h3>Personal Information</h3>
+            <p><strong>Name:</strong> {{students.firstname}} {{ students.lastname }}</p>
+            <p><strong>Seriel Number:</strong>  {{students.id}}</p>
+            <p><strong>Roll Number:</strong> {{students.rollno}} </p>
+
+            <p><strong>Age:</strong>  {{ students.age }}</p>
+            <p><strong>Gender:</strong> {{ students.gender }}</p>
+            <p><strong>Phone:</strong> {{ students.phoneno }}</p>
+            <p><strong>Email:</strong> {{ students.emailid }}</p>
+        </div>
+        <div class="detail">
+            <!-- &#8377; is a rupees symbol -->
+            <h3>Course Information</h3>
+            <p><strong>Course:</strong> {{ students.coursename }}</p>
+            <p><strong>Joining Date:</strong> {{ students.joiningdate|date:"F d, Y" }}</p>
+            <p><strong>Completion Date:</strong>  {{ students.completiondate|date:"F d, Y" }}</p>
+            <p><strong>Total Course Duration:</strong> {{duration.years}} Years, {{ duration.months }} Months, {{ duration.days }} Days</p>
+            <p><strong>Total Fees:</strong> &#8377;{{ students.coursefees }}</p>    
+            <p><strong>Fees Paid:</strong> &#8377;{{ students.feespaid }}</p>
+            <p><strong>Remaining Balance:</strong> &#8377;{{ remainingBalance }}</p>
+            <p><strong>Batch and Timing:</strong> {{students.batch_time}}</p>
+            {% if students.extendeddate %}
+                <p style="background-color:red"><strong>Course Extention Date:</strong> {{students.extendeddate}}</p>
+            {% else %}
+                <p><strong>Course Extention Date:</strong> {{students.extendeddate}}</p>
+            {% endif %}
+            
+        </div>
+    </div>
+
+    <div class="student-details">
+        <div class="fees-detail">
+            <h3>Fees Details</h3>
+            <p><strong>Total Fees:</strong> &#8377;{{ students.coursefees }}</p>    
+            <p><strong>Initial amount Paid:</strong> &#8377;{{ students.initial_payment }}</p>    
+            <p><strong>Fees Paid:</strong> &#8377;{{ students.feespaid }}</p>
+            <p><strong>Remaining Balance:</strong> &#8377;{{ remainingBalance }}</p>
+        </div>
+    </div>
+
+    <div class="student-details">
+        <div class="detail">
+            <h3>Address</h3>
+            <p>{{ students.address }}</p>
+            <!-- <p>City, State</p>
+            <p>Zip Code</p> -->
+        </div>
+        <div class="detail">
+            <h3>Emergency Contact</h3>
+            <p><strong>Name:</strong>  {{students.firstname}} {{ students.lastname }}</p>
+            <p><strong>Occupation:</strong> Student</p>
+            <p><strong>Phone:</strong> {{ students.phoneno }}</p>
+        </div>
+    </div>
+
+    <div class="student-details">
+        {% load custom_filters %}
+        <div class="detail">
+            <h3>Exam and Certification</h3>
+
+            <div class="exam-status">
+                {% if students.exam_given %}
+                    <p><strong>Exam Status:</strong>  Given</p>
+                {% else %}
+                    <p><strong>Exam Status:</strong>  Exam Pending</p>
+                {% endif %}
+            </div>
+            
+            {% comment %} <p><strong>Exam Date:</strong> {{ students.completiondate|add_days:1|date:"F d, Y" }}</p> {% endcomment %}
+            <p><strong>Exam Date:</strong> {{ students.exam_date|date:"F d, Y"  }}</p>
+            <p><strong>Exam Fees:</strong>&#8377;100 </p>
+            <p><strong>Exam Session:</strong> </p>
+            <p><strong>Exam Attempt:</strong> </p>
+            <p><strong>Re-Exam:</strong> </p>
+            <p><strong>Certification:</strong>  {{ students.coursename }}</p>
+            <p><strong>Certification no:</strong> </p>
+            <p><strong>Result Date:</strong> </p>
+        </div>
+
+        <div class="remarks-detail">
+            <!-- &#8377; is a rupees symbol -->
+            <h3>Remarks</h3>
+            <ul>
+                {% for remark in students.studentremarks_set.all %}
+                    <li>{{ remark.remark_date|date:"F d, Y" }}: {{ remark.remarks }}</li>
+                {% endfor %}
+
+                {% if request.user.is_superuser %}
+                    <button class="addremarkbtn" onclick="location.href='{% url 'remarks' students.id %}'">Add a Remark</button>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="student-details">
+        <div class="fees-detail">
+            <h3>Examination Reports</h3>
+            <button class="examreportbtn" onclick="location.href='{% url 'print_exam_reports' %}'">view exam report</button>
+            
+            {% comment %} {% if exam_reports %}
+                <!-- Iterate through the exam_reports queryset -->
+                {% for exam_report in exam_reports %}
+                    <p><strong>Status:</strong>
+                    {% if exam_report.exam_status %}
+                        Given
+                    {% else %}
+                        Not Given
+                    {% endif %}
+                    </p>    
+                    <p><strong>Theoretical Marks:</strong> {{ exam_report.theory_marks }} Marks</p>    
+                    <p><strong>Practical Marks:</strong> {{ exam_report.practical_marks }} Marks</p>
+                    <p><strong>Total Marks:</strong> {{ exam_report.total_marks }} Marks</p>
+                    <p><strong>Percentage:</strong> {{ exam_report.percentage }}%</p>
+                    <p><strong>Marksheet no:</strong> {{ exam_report.marksheet_no }}</p>
+                    
+                {% endfor %}
+            {% else %}
+                <p>No exam reports available.</p>
+            {% endif %} {% endcomment %}
+        </div>
+    </div>
+    
+</div>
+
+</body>
+</html>
